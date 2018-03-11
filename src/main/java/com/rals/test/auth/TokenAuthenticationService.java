@@ -22,10 +22,10 @@ public class TokenAuthenticationService {
     static void addAuthentication(HttpServletResponse res, String username) {
         String JWT = Jwts.builder()
                 .setSubject(username)
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))
                 .signWith(SignatureAlgorithm.HS512, SECRET)
                 .compact();
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + " " + JWT);
+        //eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0In0.GRCEG3Foae7PzmRZncrClMAgpbECfsPoM64OK8ja9WqcWZsmySX82I2seSxW_PlYggxxbspHEhzOuDr5Anyxpg
         System.out.println("GET JWT TOKEN"+ JWT);
     }
 
